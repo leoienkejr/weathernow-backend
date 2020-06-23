@@ -11,7 +11,7 @@ class TestCore(unittest.TestCase):
         self.assertEquals(sanitized, 'a')
 
         # And if allowed chars are kept
-        query = '123abcDEF,;-'
+        query = '123abcDEF,;- '
         sanitized = core.sanitize_query(query)
         self.assertEquals(sanitized, '123abcDEF,;-')
 

@@ -1,4 +1,5 @@
 from flask import Flask
+import core
 
 app = Flask(__name__)
 APP_VERSION = 0.1
@@ -11,7 +12,7 @@ def root():
 
 @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
 def api(cityname):
-    return cityname
+    return core.sanitize_query(cityname)
 
 
 if __name__ == '__main__':
