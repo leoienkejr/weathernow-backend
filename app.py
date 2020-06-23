@@ -4,9 +4,9 @@ app = Flask(__name__)
 APP_VERSION = 0.1
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def root():
-    return f'<h3>World Weather {APP_VERSION}</h3>'
+    return f'World Weather {APP_VERSION}'
 
 
 @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
