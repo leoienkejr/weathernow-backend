@@ -8,7 +8,8 @@ def sanitize_query(query):
     if len(query) > 128:
         query = query[:128]
 
-    sanitized_query = ''.join([char for char in query if char in allowed_chars])
+    sanitized_query = ''.join([char for char in query
+                               if char in allowed_chars])
     return sanitized_query
 
 
