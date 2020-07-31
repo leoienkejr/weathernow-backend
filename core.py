@@ -51,4 +51,3 @@ def treat_response(json_response):
 
 if __name__ == '__main__':
     pass
-

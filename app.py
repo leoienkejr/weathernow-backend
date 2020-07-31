@@ -15,7 +15,8 @@ def root():
 def api(cityname):
     sanitized_query = core.sanitize_query(cityname)
     try:
-        response = core.treat_response(core.request_weather_api(sanitized_query))
+        response = core.request_weather_api(sanitized_query)
+        response = core.treat_response(response)
         return jsonify(response)
     except RuntimeError:
         error_response = {'response_code': '!200'}
@@ -23,4 +24,4 @@ def api(cityname):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
