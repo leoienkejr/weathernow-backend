@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 import core
 
 app = Flask(__name__)
@@ -12,7 +13,13 @@ def root():
 
 @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
 def api(cityname):
-    return core.sanitize_query(cityname)
+    sanitized_query = core.sanitize_query(cityname)
+    try:
+        response = core.treat_response(core.request_weather_api(sanitized_query))
+        return jsonify(response)
+    except RuntimeError:
+        error_response = {'response_code': '!200'}
+        return jsonify(error_response)
 
 
 if __name__ == '__main__':
