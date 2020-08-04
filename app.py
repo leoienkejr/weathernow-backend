@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 import core
+import os
 
 app = Flask(__name__)
 APP_VERSION = 0.1
@@ -24,4 +25,5 @@ def api(cityname):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
