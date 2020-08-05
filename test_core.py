@@ -1,5 +1,5 @@
 import unittest
-import core
+from worldweather import core
 
 
 class TestCore(unittest.TestCase):

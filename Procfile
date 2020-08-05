@@ -1,1 +1,1 @@
-web: python app.py
+web: gunicorn -w 4 "worldweather.app:create_app()"
