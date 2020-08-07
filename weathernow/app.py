@@ -13,7 +13,7 @@ def create_app():
         return f'World Weather {APP_VERSION}'
 
     @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
-    @cross_origin()
+    @cross_origin(origins='*')
     def api(cityname):
         sanitized_query = core.sanitize_query(cityname)
         try:
