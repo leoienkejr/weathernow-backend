@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+from flask_cors import cross_origin
 from . import core
 
 
@@ -12,6 +13,7 @@ def create_app():
         return f'World Weather {APP_VERSION}'
 
     @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
+    @cross_origin()
     def api(cityname):
         sanitized_query = core.sanitize_query(cityname)
         try:
