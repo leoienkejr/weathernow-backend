@@ -1,0 +1,1 @@
+web: gunicorn -w 4 "weathernow-backend.weathernow.app:create_app()"
