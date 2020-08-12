@@ -1,11 +1,17 @@
 import os
 import requests
+import vars
 
 
 def validate_query(query):
-    if len(query) > 128:
-        return query[:128]
-    return query
+    restricted_chars = vars.restricted_chars
+
+    valid_query = ''.join([char for char in query
+                          if char not in restricted_chars])
+
+    if len(valid_query) > 128:
+        return valid_query[:128]
+    return valid_query
 
 
 def request_weather_api(query):
