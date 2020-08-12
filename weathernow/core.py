@@ -1,12 +1,14 @@
 import os
 import requests
 from . import vars
+import urllib.parse
 
 
 def validate_query(query):
     restricted_chars = vars.restricted_chars
+    decoded_query = urllib.parse.unquote(query)
 
-    valid_query = ''.join([char for char in query
+    valid_query = ''.join([char for char in decoded_query
                           if char not in restricted_chars])
 
     if len(valid_query) > 128:
