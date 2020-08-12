@@ -15,7 +15,7 @@ def create_app():
     @app.route('/api/bycityname/<string:cityname>', methods=['GET'])
     @cross_origin(origins='https://leoienkejr.github.io')
     def api(cityname):
-        sanitized_query = core.sanitize_query(cityname)
+        sanitized_query = core.validate_query(cityname)
         try:
             response = core.request_weather_api(sanitized_query)
             response = core.treat_response(response)

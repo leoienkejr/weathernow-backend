@@ -2,19 +2,10 @@ import os
 import requests
 
 
-def sanitize_query(query):
-    allowed_chars = 'qwertyuiopasdfghjklçzxcvbnm'
-    allowed_chars += allowed_chars.upper()
-    allowed_chars += '0123456789'
-    allowed_chars += ',;- '
-    allowed_chars = set(allowed_chars)
-
+def validate_query(query):
     if len(query) > 128:
-        query = query[:128]
-
-    sanitized_query = ''.join([char for char in query
-                               if char in allowed_chars])
-    return sanitized_query
+        valid_query = query[:128]
+    return valid_query
 
 
 def request_weather_api(query):
