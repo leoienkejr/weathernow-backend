@@ -1,6 +1,6 @@
 import os
 import requests
-import vars
+from . import vars
 
 
 def validate_query(query):
