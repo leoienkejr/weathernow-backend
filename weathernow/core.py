@@ -4,8 +4,8 @@ import requests
 
 def validate_query(query):
     if len(query) > 128:
-        valid_query = query[:128]
-    return valid_query
+        return query[:128]
+    return query
 
 
 def request_weather_api(query):
