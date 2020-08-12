@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask_cors import cross_origin
-from . import core
+import core
 
 
 def create_app():
